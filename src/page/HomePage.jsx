@@ -4,7 +4,7 @@ const HomePage = () => {
     return (
         <div>
             <Navbar />
-            <div>HomePage</div>
+            <div className='bg-gray-300 h-[390px]'>Content</div>
             <Footer />
         </div>
     );

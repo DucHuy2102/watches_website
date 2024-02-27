@@ -1,4 +1,6 @@
-module.exports = {
+const withMT = require('@material-tailwind/react/utils/withMT');
+
+module.exports = withMT({
     root: true,
     env: { browser: true, es2020: true },
     extends: [
@@ -17,4 +19,4 @@ module.exports = {
         'react/jsx-no-target-blank': 'off',
         'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
-};
+});
