@@ -8,14 +8,14 @@ const HomePage = () => {
             <Navbar />
 
             {/* body */}
-            <div class='h-96 grid grid-cols-4 bg-gray-500'>
+            <div className='h-96 grid grid-cols-4 bg-gray-500'>
                 {/* slidebar */}
-                <div class='col-span-1 bg-gray-200'>
+                <div className='col-span-1 bg-gray-200'>
                     <div>Slidebar</div>
                 </div>
 
                 {/* content */}
-                <div class='col-span-3 bg-gray-400'>
+                <div className='col-span-3 bg-gray-400'>
                     <div>Content</div>
                 </div>
             </div>

@@ -4,9 +4,9 @@ import { FaHome } from 'react-icons/fa';
 const Navbar = () => {
     const user = true;
     return (
-        <div className='h-14 w-full flex justify-center items-center space-x-56'>
+        <div className='h-16 w-full flex items-center relative shadow-md'>
             {/* logo */}
-            <div className='border border-black px-5 py-1 rounded-lg flex items-center justify-center'>
+            <div className='h-[40px] border border-black px-5 rounded-lg flex items-center justify-center ml-36'>
                 <Link to='/' className='flex items-center'>
                     <FaHome className='text-2xl' />
                     <span className='pl-2 font-bold'>Home</span>
@@ -14,8 +14,7 @@ const Navbar = () => {
             </div>
 
             {/* search */}
-            <div className='w-96 h-10'>
-                <label htmlFor=''></label>
+            <div className='w-full h-[40px] grow ml-32 mr-32'>
                 <input
                     placeholder='Search here ... '
                     type='text'
@@ -24,18 +23,18 @@ const Navbar = () => {
             </div>
 
             {/* login & register */}
-            <div className=' text-xl'>
+            <div className='h-[40px] flex items-center text-xl mr-36'>
                 {user ? (
                     <Link
                         to='/login'
-                        className='w-[5px] border border-black rounded-lg hover:bg-gray-500 hover:text-white hover:border-none hover:font-bold'
+                        className='px-5 py-1 border border-black rounded-lg hover:bg-gray-500 hover:text-white hover:border-none'
                     >
                         Login
                     </Link>
                 ) : (
                     <Link
                         to='/register'
-                        className='border border-black rounded-lg hover:bg-gray-500 hover:text-white hover:border-none hover:font-bold'
+                        className='px-5 py-1 border border-black rounded-lg hover:bg-gray-500 hover:text-white hover:border-none'
                     >
                         Register
                     </Link>
