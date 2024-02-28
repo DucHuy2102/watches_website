@@ -1,10 +1,26 @@
 import { Navbar, Footer } from '../components/index';
+import { Slidebar } from '../page/index';
 
 const HomePage = () => {
     return (
         <div>
+            {/* navbar */}
             <Navbar />
-            <div className='bg-gray-300 h-[390px]'>Content</div>
+
+            {/* body */}
+            <div class='h-96 grid grid-cols-4 bg-gray-500'>
+                {/* slidebar */}
+                <div class='col-span-1 bg-gray-200'>
+                    <div>Slidebar</div>
+                </div>
+
+                {/* content */}
+                <div class='col-span-3 bg-gray-400'>
+                    <div>Content</div>
+                </div>
+            </div>
+
+            {/* footer */}
             <Footer />
         </div>
     );

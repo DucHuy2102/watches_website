@@ -1,9 +1,33 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { FaHome } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { URL } from '../url';
 
 const Login = () => {
     const [error, setError] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    // function
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post(URL + '/api/auth/login', { email, password });
+            setEmail(res.data.email);
+            setPassword(res.data.password);
+            setError(false);
+            console.log(email, ' - ', password);
+            navigate('/');
+        } catch (error) {
+            setError(true);
+            console.log(error);
+        }
+        // console.log('email:', email);
+        // console.log('password:', password);
+    };
+
     return (
         <div>
             {/* <Navbar /> */}
@@ -30,7 +54,7 @@ const Login = () => {
                 <div className='text-xl'>
                     <Link
                         to='/register'
-                        className='border border-black px-5 py-1 rounded-lg hover:bg-gray-500 hover:text-white hover:text-bold'
+                        className='border border-black rounded-lg hover:bg-gray-500 hover:text-white hover:font-bold'
                     >
                         Register
                     </Link>
@@ -39,19 +63,27 @@ const Login = () => {
 
             {/* login */}
             <div className='w-full flex justify-center items-center h-[80vh] '>
-                <div className='flex flex-col justify-center items-center space-y-4 w-[80%] md:w-[25%]'>
+                <form
+                    onSubmit={handleLogin}
+                    className='flex flex-col justify-center items-center space-y-4 w-[80%] md:w-[25%]'
+                >
                     <h1 className='text-2xl font-bold text-left'>Log in to your account</h1>
                     <input
+                        onChange={(e) => setEmail(e.target.value)}
                         className='w-full px-4 py-2 border-2 border-black outline-0'
                         type='text'
                         placeholder='Enter your email'
                     />
                     <input
+                        onChange={(e) => setPassword(e.target.value)}
                         className='w-full px-4 py-2 border-2 border-black outline-0'
                         type='password'
                         placeholder='Enter your password'
                     />
-                    <button className='w-full px-4 py-4 text-lg font-bold text-white bg-black rounded-lg hover:bg-gray-500 hover:text-black '>
+                    <button
+                        type='submit'
+                        className='w-full px-4 py-4 text-lg font-bold text-white bg-black rounded-lg hover:bg-gray-500 hover:text-black '
+                    >
                         Log in
                     </button>
                     {error && <h3 className='text-red-500 text-sm '>Something went wrong</h3>}
@@ -61,7 +93,7 @@ const Login = () => {
                             <Link to='/register'>Register</Link>
                         </p>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     );

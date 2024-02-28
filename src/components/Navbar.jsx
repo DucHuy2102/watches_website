@@ -28,14 +28,14 @@ const Navbar = () => {
                 {user ? (
                     <Link
                         to='/login'
-                        className='border border-black px-5 py-1 rounded-lg hover:bg-gray-500 hover:text-white hover:border-none hover:text-bold'
+                        className='w-[5px] border border-black rounded-lg hover:bg-gray-500 hover:text-white hover:border-none hover:font-bold'
                     >
                         Login
                     </Link>
                 ) : (
                     <Link
                         to='/register'
-                        className='border border-black px-5 py-1 rounded-lg hover:bg-gray-500 hover:text-white hover:border-none hover:text-bold'
+                        className='border border-black rounded-lg hover:bg-gray-500 hover:text-white hover:border-none hover:font-bold'
                     >
                         Register
                     </Link>
